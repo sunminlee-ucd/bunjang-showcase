@@ -1,5 +1,9 @@
 # Brand Lens — Bunjang Research Tool
 
+[![Public sample checks](https://github.com/sunminlee-ucd/bunjang-showcase/actions/workflows/sample-checks.yml/badge.svg)](https://github.com/sunminlee-ucd/bunjang-showcase/actions/workflows/sample-checks.yml)
+
+*Checks cover the standalone public sample; full application integration and deployment are outside their scope.*
+
 **A resale-research application that turns Korean Bunjang listing observations into reviewable product groups, separate sold/reserved statistics, and resumable collection jobs.**
 
 I am developing Brand Lens to make resale research more systematic: collect a repeatable sample, retain the evidence behind its status and price, compare similar listings, and run collection from a browser without keeping a personal computer on.
@@ -135,6 +139,22 @@ Image similarity supplements candidate review using a coarse RGB grid, HSV histo
 [Inspect and run the image-similarity sample](examples/). It is a source-derived standalone module with tests and a demo using generated, synthetic images. It makes no marketplace requests, requires no cloud credentials, and publishes no collected listing data.
 
 The example demonstrates one implemented mechanism. It does not expose the full collection application or claim to authenticate clothing.
+
+### Visual output
+
+![Actual similarity-module output for generated color patches](assets/image-similarity-demo.png)
+
+This is output from the public Python example, **not an application screenshot**. It compares generated color patches using the same feature/scoring module exposed in this repository.
+
+| Candidate compared with solid red | Similarity score |
+| --- | ---: |
+| Identical red | 1.000000 |
+| Red with a blue corner | 0.888867 |
+| Solid blue | 0.583333 |
+
+The nonzero score for different colors illustrates why a score must not be read as a probability of product identity. The algorithm combines color layout, histogram, and edge distances; it does not establish whether two garments are the same model or authentic.
+
+[Run or regenerate the demo](examples/#visual-output) · [Inspect raw scores and component distances](assets/image-similarity-demo.json)
 
 ## My contribution
 

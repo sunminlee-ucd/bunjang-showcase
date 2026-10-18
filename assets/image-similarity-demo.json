@@ -1,0 +1,33 @@
+{
+  "input": "generated RGB color patches",
+  "feature_dimensions": 624,
+  "candidates": [
+    {
+      "candidate": "Identical red",
+      "score": 1.0,
+      "distances": {
+        "rgb_grid": 0.0,
+        "hsv_histogram": 0.0,
+        "horizontal_edges": 0.0
+      }
+    },
+    {
+      "candidate": "Blue corner",
+      "score": 0.888867,
+      "distances": {
+        "rgb_grid": 0.1667211328976035,
+        "hsv_histogram": 0.09879557291666667,
+        "horizontal_edges": 0.007652505446623094
+      }
+    },
+    {
+      "candidate": "Solid blue",
+      "score": 0.583333,
+      "distances": {
+        "rgb_grid": 0.6666666666666666,
+        "hsv_histogram": 0.3333333333333333,
+        "horizontal_edges": 0.0
+      }
+    }
+  ]
+}
