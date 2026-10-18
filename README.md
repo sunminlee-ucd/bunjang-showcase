@@ -19,7 +19,7 @@ I am developing Brand Lens to make resale research more systematic: collect a re
 
 The web service is deployed on Google Cloud Run. Access requires an administrator-provisioned account; public registration is not available. Recruiters can review the case study and [run the standalone sample](examples/) without an account, or arrange a guided application walkthrough.
 
-**Browser verification:** the deployment redirected to its rendered sign-in page on 18 October 2026. Authenticated research screens, background-job execution, and collection results have not yet been verified in this walkthrough.
+**Browser verification:** the deployed sign-in page and authenticated product-analysis interface were observed on 18 October 2026. Collection controls, analysis filters, and the cost/history tabs are present. No new collection was started; background-job execution and populated research results remain unverified. Screenshots and a visual walkthrough of the authenticated workflow are pending.
 
 ## Problem and motivation
 
