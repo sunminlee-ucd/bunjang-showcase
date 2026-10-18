@@ -13,6 +13,14 @@ I am developing Brand Lens to make resale research more systematic: collect a re
 
 [Problem and motivation](#problem-and-motivation) · [Architecture](#architecture) · [Core engineering](#core-engineering) · [Technology stack](#technology-stack) · [Runnable example](#runnable-example)
 
+## Deployed application
+
+[Open the deployed sign-in page](https://bunjang-web-x5omgavbua-du.a.run.app/login)
+
+The web service is deployed on Google Cloud Run. Access requires an administrator-provisioned account; public registration is not available. Recruiters can review the case study and [run the standalone sample](examples/) without an account, or arrange a guided application walkthrough.
+
+**Browser verification:** the deployment redirected to its rendered sign-in page on 18 October 2026. Authenticated research screens, background-job execution, and collection results have not yet been verified in this walkthrough.
+
 ## Problem and motivation
 
 For resale research, an asking price alone is a weak signal. A useful comparison also needs to distinguish a listed item from a reserved item or a listing marked sold, identify whether the products are actually comparable, and explain what is known about the date.
@@ -62,7 +70,7 @@ flowchart TD
     Analysis --> Results["Groups, filters, images, and CSV"]
 ```
 
-The cloud path allows a collection job to outlive a browser request. It does not rely on an always-running laptop or an in-memory event shared between separate processes. Current deployment health is outside the verification scope of this public documentation update.
+The cloud path allows a collection job to outlive a browser request. It does not rely on an always-running laptop or an in-memory event shared between separate processes. The deployed sign-in page has been observed; authenticated worker execution and deployment health beyond that entry point remain outside this verification.
 
 ## Core engineering
 
