@@ -11,11 +11,38 @@ I am developing Brand Lens to make resale research more systematic: collect a re
 | At a glance | |
 | --- | --- |
 | My role | Project owner and developer across collection, data analysis, authentication, web UI, and cloud job orchestration |
-| Stage | Working local application with implemented Cloud Run/Firestore adapters; active development |
+| Stage | Deployed web application with local/cloud paths; active development |
 | Engineering focus | Evidence-aware statistics, resumable collection, shared job state, and uncertainty-aware job submission |
-| This repository | Public case study and a small runnable code example; the full application and collected data remain private |
+| This repository | Technical case study, selected UI captures, and a runnable code example; the full application and underlying listing dataset remain private |
 
-[Problem and motivation](#problem-and-motivation) · [Architecture](#architecture) · [Core engineering](#core-engineering) · [Technology stack](#technology-stack) · [Runnable example](#runnable-example)
+[Screenshots and walkthrough](#product-screenshots-and-ui-walkthrough) · [Problem and motivation](#problem-and-motivation) · [Architecture](#architecture) · [Core engineering](#core-engineering) · [Technology stack](#technology-stack) · [Runnable example](#runnable-example)
+
+## Product screenshots and UI walkthrough
+
+[Watch or download the 20-second MP4](assets/brand-lens-ui-walkthrough.mp4) · [Capture scope and limitations](MEDIA.md)
+
+![Brand Lens authenticated application views](assets/brand-lens-ui-walkthrough.gif)
+
+Actual browser captures of the deployed application, taken on **19 October 2026**: analysis controls, observed-result summaries, saved collection history, and the cost calculator. This is a silent montage of four still captures, five seconds per view, rather than a continuous interaction recording.
+
+The summaries show an existing saved observation sample. Counts are not total marketplace sales; sold-marked listing prices are not verified transaction amounts. The calculator was captured with empty product inputs and its displayed exchange-rate/shipping defaults.
+
+<details>
+<summary>View the individual screenshots</summary>
+
+### Analysis controls
+![Brand Lens analysis controls](assets/01-analysis-controls.jpg)
+
+### Existing observations and category summaries
+![Brand Lens observed listing-state counts and category summaries](assets/02-observed-summary.jpg)
+
+### Saved collection history
+![Brand Lens collection history with dates and search terms](assets/03-collection-history.jpg)
+
+### Cost calculator
+![Brand Lens cost calculator with empty product inputs](assets/04-cost-calculator.jpg)
+
+</details>
 
 ## Deployed application
 
@@ -23,7 +50,7 @@ I am developing Brand Lens to make resale research more systematic: collect a re
 
 The web service is deployed on Google Cloud Run. Access requires an administrator-provisioned account; public registration is not available. Recruiters can review the case study and [run the standalone sample](examples/) without an account, or arrange a guided application walkthrough.
 
-**Browser verification:** the deployed sign-in page and authenticated product-analysis interface were observed on 18 October 2026. Collection controls, analysis filters, and the cost/history tabs are present. No new collection was started; background-job execution and populated research results remain unverified. Screenshots and a visual walkthrough of the authenticated workflow are pending.
+**Browser verification:** authenticated analysis controls, existing observation summaries, collection history, and the empty-input cost calculator were captured on 19 October 2026. An existing history entry was also opened. No new collection, job submission, data deletion, or export was executed; live collection and worker behavior remain outside this walkthrough.
 
 ## Problem and motivation
 
@@ -74,7 +101,7 @@ flowchart TD
     Analysis --> Results["Groups, filters, images, and CSV"]
 ```
 
-The cloud path allows a collection job to outlive a browser request. It does not rely on an always-running laptop or an in-memory event shared between separate processes. The deployed sign-in page has been observed; authenticated worker execution and deployment health beyond that entry point remain outside this verification.
+The cloud path allows a collection job to outlive a browser request. It does not rely on an always-running laptop or an in-memory event shared between separate processes. The deployed authenticated UI and existing saved-result views have been observed. Live worker execution, recovery behavior, and deployment health beyond these browser views remain outside this verification.
 
 ## Core engineering
 
@@ -166,7 +193,7 @@ The nonzero score for different colors illustrates why a score must not be read 
 
 ## Verification and current boundaries
 
-The private repository contains analysis, network, authentication, cloud-adapter, image-similarity, and browser tests. This documentation update validates the public standalone sample separately; it does not rerun live marketplace collection or certify the deployed service.
+The private repository contains analysis, network, authentication, cloud-adapter, image-similarity, and browser tests. The public standalone sample is validated separately by its automated checks. The UI captures record observed browser state; they do not rerun live marketplace collection, independently validate the stored aggregates, or certify the deployed service.
 
 - Public search samples do not establish total transaction volume or exact historical sale dates.
 - Titles, posted prices, and platform status labels require careful interpretation.
